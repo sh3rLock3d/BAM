@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 from config.scraper_config import *
 import praw # pip install praw
@@ -10,6 +11,7 @@ reddit = praw.Reddit(
     user_agent=user_agent
 )
 
+five_years_ago = time.time() - (5 * 365 * 24 * 60 * 60)
 
 for subreddit_name in subreddit_names:
     for search_query in search_queries:
@@ -18,6 +20,9 @@ for subreddit_name in subreddit_names:
 
         posts_data = []
         for post in posts:
+            # Filter posts from the past 5 years
+            if post.created_utc < five_years_ago:
+                continue
             post_info = {
                 "title": post.title,
                 "selftext": post.selftext,
