@@ -5,5 +5,5 @@ client_secret = "6FuDkrmmgF9AX3O-IgZFBgZoFEXYrg"
 user_agent="script:ai_comment_extractor:v1.0 (by u/TrainingCamp6579)"
 subreddit_names= ['privacy', 'Ethics']
 search_queries = ['AI']
-search_limit=10 # Number of posts we want to extract.
+search_limit=100 # Number of posts we want to extract.
 
